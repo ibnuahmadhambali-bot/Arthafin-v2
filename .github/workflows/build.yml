@@ -1,4 +1,4 @@
-name: Build Android APK
+name: Android CI Proper Direct
 
 on:
   push:
@@ -10,23 +10,30 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v3
+    - name: Checkout Repo
+      uses: actions/checkout@v4
 
-    - name: Setup Java JDK
-      uses: actions/setup-java@v3
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
       with:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Beri Izin Eksekusi Gradle
-      run: chmod +x ./gradlew
-
-    - name: Proses Build APK
-      run: ./gradlew assembleDebug
-
-    - name: Simpan dan Upload APK
-      uses: actions/upload-artifact@v3
+    - name: Setup Gradle (Upgrade ke 9.3.1)
+      uses: gradle/actions/setup-gradle@v4
       with:
-        name: Arthafin-APK
-        path: app/build/outputs/apk/debug/*.apk
+        gradle-version: '9.3.1'
+
+    # LANGKAH BARU: Membuat file debug.keystore otomatis di root agar lolos validasi signing
+    - name: Generate Dummy Debug Keystore
+      run: |
+        keytool -genkey -v -keystore debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Android Debug,O=Android,C=US"
+
+    - name: Build APK Matang
+      run: gradle assembleDebug
+
+    - name: Ambil File APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: ArthaFin-APK-Matang
+        path: app/build/outputs/apk/debug/app-debug.apk
