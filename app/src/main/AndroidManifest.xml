@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.arthafin.app">
+    package="com.example.mypepperapplication">
 
-    <!-- Crucial internet permission to fetch live pages -->
+    <!-- Izin Internet untuk akses website live -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    
+    <!-- Izin Kamera yang dibutuhkan oleh WebRTC / HTML5 website -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- Menginfokan bahwa aplikasi menggunakan fitur Kamera -->
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
 
     <application
         android:allowBackup="true"
@@ -14,7 +21,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:hardwareAccelerated="true"
-        android:usesCleartextTraffic="true"> <!-- Needed if you connect to localhost or standard HTTP addresses during testing -->
+        android:usesCleartextTraffic="true"> <!-- Membantu uji coba di server HTTP lokal jika diperlukan -->
 
         <activity
             android:name=".MainActivity"
