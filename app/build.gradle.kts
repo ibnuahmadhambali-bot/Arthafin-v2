@@ -4,12 +4,10 @@ plugins {
 }
 
 android {
-    // Sesuai dengan struktur folder MainActivity kamu
     namespace = "com.example.mypepperapplication"
     compileSdk = 34
 
     defaultConfig {
-        // Sesuai dengan nama paket aplikasi kamu
         applicationId = "com.example.mypepperapplication"
         minSdk = 21 
         targetSdk = 34
@@ -37,6 +35,9 @@ android {
 }
 
 dependencies {
+    // Library wajib agar Splash Screen bisa berjalan
+    implementation("androidx.core:core-splashscreen:1.0.1")
+
     // AndroidX & AppCompat untuk komponen UI robust
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")
