@@ -1,31 +1,30 @@
-This XML file does not appear to have any style information associated with it. The document tree is shown below.
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.arthafin.webviewapp">
-<!--  Izin Utama yang Diperlukan oleh WebView & API Connection  -->
-<uses-permission android:name="android.permission.INTERNET"/>
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-<!--  
-      Izin Opsional jika web Anda memerlukan upload file kamera atau geolocator.
-      Dapat ditambahkan sesuai keperluan.
-     -->
-<application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="ArthaFin App" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/Theme.AppCompat.Light.NoActionBar" android:hardwareAccelerated="true" android:usesCleartextTraffic="true">
-<!--  Mengizinkan koneksi HTTP non-secure jika diperlukan, disarankan HTTPS  -->
-<activity android:name=".MainActivity" android:exported="true" android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-<intent-filter>
-<action android:name="android.intent.action.MAIN"/>
-<category android:name="android.intent.category.LAUNCHER"/>
-</intent-filter>
-<!--  
-              Deep Link Intent Filter:
-              Menangkap link eksternal yang di-share agar langsung membuka WebView ini.
-             -->
-<intent-filter android:autoVerify="true">
-<action android:name="android.intent.action.VIEW"/>
-<category android:name="android.intent.category.DEFAULT"/>
-<category android:name="android.intent.category.BROWSABLE"/>
-<data android:scheme="https"/>
-<data android:scheme="http"/>
-<data android:host="app.arthafin.web.id"/>
-</intent-filter>
-</activity>
-</application>
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.arthafin.app">
+
+    <!-- Crucial internet permission to fetch live pages -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="ArthaFin WebView"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        android:hardwareAccelerated="true"
+        android:usesCleartextTraffic="true"> <!-- Needed if you connect to localhost or standard HTTP addresses during testing -->
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:configChanges="orientation|screenSize|keyboardHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
 </manifest>
