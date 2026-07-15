@@ -1,22 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Tema Utama Aplikasi (Bawaan template yang sudah disesuaikan) -->
     <style name="Theme.MyPepperApplication" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowBackground">#FFFFFF</item>
     </style>
 
-    <!-- Tema Khusus Layar Pembuka (Splash Screen) -->
     <style name="Theme.App.Starting" parent="Theme.SplashScreen">
-        <!-- Warna latar belakang putih bersih -->
         <item name="windowSplashScreenBackground">#FFFFFF</item>
         
-        <!-- Logo wordmark transparan di tengah layar -->
         <item name="windowSplashScreenAnimatedIcon">@drawable/wordmark</item>
         
-        <!-- Gambar berisi teks OJK/LPS di bagian bawah layar -->
-        <item name="windowSplashScreenBrandingImage">@drawable/teks_bawah</item>
-        
-        <!-- Setelah selesai loading, pindah ke tema utama -->
         <item name="postSplashScreenTheme">@style/Theme.MyPepperApplication</item>
     </style>
 </resources>
