@@ -1,1 +1,9 @@
-
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent" android:background="#FFFFFF" tools:context=".MainActivity">
+<!--  
+      Layout WebView Robust. 
+      Mengisi 100% tinggi dan lebar layar tanpa padding atau margin, 
+      serta dioptimalkan dengan Hardware Acceleration di level View (opsional).
+     -->
+<WebView android:id="@+id/webView" android:layout_width="match_parent" android:layout_height="match_parent" android:hardwareAccelerated="true" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
