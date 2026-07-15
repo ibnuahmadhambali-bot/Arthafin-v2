@@ -19,12 +19,13 @@ import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen // <-- IMPORT MESIN SPLASH SCREEN
 import java.io.IOException
 import java.io.InputStream
 
 /**
  * Senior Android WebView Controller
- * - Intercepts static asset calls and serves them locally from the APK assets (Mencegat /assets/).
+ * - Intercepts static asset calls and serves them locally from the APK assets.
  * - Handles Runtime Camera Permissions for Android OS.
  * - Automatically grants camera hardware access requests from internal web views.
  */
@@ -40,6 +41,9 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
+        // NYALAKAN MESIN SPLASH SCREEN DI SINI (WAJIB SEBELUM SUPER.ONCREATE)
+        installSplashScreen() 
+        
         super.onCreate(savedInstanceState)
         
         // 1. Hide Action Bar / Title Bar for full native UI
